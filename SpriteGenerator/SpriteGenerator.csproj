@@ -17,6 +17,7 @@
     <None Remove="ffmpeg\postproc-55.dll" />
     <None Remove="ffmpeg\swresample-3.dll" />
     <None Remove="ffmpeg\swscale-5.dll" />
+    <None Remove="montage\montage.exe" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +52,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ffmpeg\swscale-5.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="montage\montage.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

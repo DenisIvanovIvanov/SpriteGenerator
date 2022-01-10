@@ -25,6 +25,9 @@ namespace SpriteGenerator.Models
         [Option('f', "ffmpeg", Required = false, Default = ".\\ffmpeg", HelpText = "Base directory of ffmpeg")]
         public string FfmpegPath { get; set; }
 
+        [Option('m', "montage", Required = false, Default = ".\\montage", HelpText = "Base directory of montage")]
+        public string MontagePath { get; set; }
+
         [Option('d', "destination", Required = false, Default = ".\\sprite")]
         public string DestinationPath { get; set; }
     }

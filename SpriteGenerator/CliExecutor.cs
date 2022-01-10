@@ -11,7 +11,7 @@ namespace SpriteGenerator
 
         public Action<string> OnDataReceived { get; set; }
 
-        public void Start(string args, string file = null)
+        public void Start(string args, string file = null, string workingDirectory = null)
         {
             var info = new ProcessStartInfo()
             {
@@ -25,12 +25,29 @@ namespace SpriteGenerator
                 WindowStyle = ProcessWindowStyle.Hidden
             };
 
+            if (!string.IsNullOrEmpty(workingDirectory))
+                info.WorkingDirectory = workingDirectory;
+
             Process = Process.Start(info);
             Process.WaitForExit();
             
             if (Process.ExitCode != 0)
             {
                 throw new ArgumentException();
+            }
+        }
+
+        public void Start(string args, string process, bool wait, string workingDirectory = null)
+        {
+            Start(args, process, workingDirectory);
+            if (wait)
+            {
+                Process.WaitForExit();
+
+                if (Process.ExitCode != 0)
+                {
+                    throw new ArgumentException("Something failed, check logs for more!");
+                }
             }
         }
 
